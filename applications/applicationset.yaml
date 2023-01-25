@@ -6,18 +6,23 @@ spec:
   generators:
     - list:
         elements:
-          - cluster: engineering-dev
-          - cluster: engineering-prod
-          - cluster: finance-preprod
+          - color: green
+          - color: blue
+          - color: red
   template:
     metadata:
-      name: '{{cluster}}-guestbook'
+      name: 'my-service-{{color}}'
     spec:
       project: default
       source:
         repoURL: https://github.com/argoproj/argo-cd.git
         targetRevision: HEAD
-        path: applicationset/examples/list-generator/guestbook/{{cluster}}
+        path: applicationset/examples/list-generator/guestbook/{{color}}
+      plugin:
+	name: cdk8s
+	env:
+	  - name: color
+	    value: {{color}}
       destination:
         server: 'https://kubernetes.default.svc'
         namespace: guestbook
