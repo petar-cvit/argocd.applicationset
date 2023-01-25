@@ -18,11 +18,11 @@ spec:
         repoURL: https://github.com/argoproj/argo-cd.git
         targetRevision: HEAD
         path: applicationset/examples/list-generator/guestbook/{{color}}
-      plugin:
-    name: cdk8s
-    env:
-      - name: color
-        value: {{color}}
-    destination:
-      server: 'https://kubernetes.default.svc'
-      namespace: guestbook
+        plugin:
+          name: cdk8s
+          env:
+            - name: color
+              value: '{{color}}'
+      destination:
+        server: 'https://kubernetes.default.svc'
+        namespace: guestbook
