@@ -11,17 +11,17 @@ spec:
           - color: red
   template:
     metadata:
-      name: 'my-service-{{color}}'
+      name: 'service-{{color}}'
     spec:
       project: default
       source:
         repoURL: https://github.com/petar-cvit/argocd.applicationset
         targetRevision: HEAD
-        path: applications
+        path: lib
         plugin:
           name: dpl-plugin
           env:
-            - name: color
+            - name: $COLOR
               value: '{{color}}'
       destination:
         server: 'https://kubernetes.default.svc'

@@ -1,0 +1,8 @@
+github.com/Masterminds/semver/v3 v3.2.0 h1:3MEsd0SM6jqZojhjLWWeBY+Kcjy9i6MQAeY7YgDP83g=
+github.com/Masterminds/semver/v3 v3.2.0/go.mod h1:qvl/7zhW3nngYb5+80sSMF+FG2BjYrf8m9wsX0PNOMQ=
+github.com/aws/constructs-go/constructs/v10 v10.1.232 h1:xg2CUyw8pmTmPopr5alnCiqsL2AwqBGudFosFmZPvVY=
+github.com/aws/constructs-go/constructs/v10 v10.1.232/go.mod h1:VEBihwbAahg1Y5bAma05g20t+OeBjLuTnWecZ8/jsSQ=
+github.com/aws/jsii-runtime-go v1.73.0 h1:4ncTOPq5SAHI0KgkP1ZdH49hRYVE3VCOZKqtilvvbnc=
+github.com/aws/jsii-runtime-go v1.73.0/go.mod h1:Li7bq0fd6cg3hbRmYQf3l2VOF9dRwF9fLk3GgHOsHVQ=
+github.com/cdk8s-team/cdk8s-core-go/cdk8s/v2 v2.6.31 h1:+l5LlOc+m5HpY0a8HoU0Awh+17FYHdNdmsvdmGBBa0g=
+github.com/cdk8s-team/cdk8s-core-go/cdk8s/v2 v2.6.31/go.mod h1:gfmE4QzhHkzFqnN+MSbay+9nk+xCsHTZT4NL5UU41qc=
