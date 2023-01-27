@@ -15,11 +15,11 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/argoproj/argo-cd.git
+        repoURL: https://github.com/petar-cvit/argocd.applicationset
         targetRevision: HEAD
-        path: applicationset/examples/list-generator/guestbook/{{color}}
+        path: applications
         plugin:
-          name: cdk8s
+          name: dpl-plugin
           env:
             - name: color
               value: '{{color}}'
