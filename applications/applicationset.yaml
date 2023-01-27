@@ -19,7 +19,7 @@ spec:
         targetRevision: HEAD
         path: lib
         plugin:
-          name: dpl-plugin
+          name: cdk8s
           env:
             - name: $COLOR
               value: '{{color}}'
