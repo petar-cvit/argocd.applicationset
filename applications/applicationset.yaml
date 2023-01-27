@@ -21,7 +21,7 @@ spec:
         plugin:
           name: cdk8s
           env:
-            - name: $COLOR
+            - name: COLOR
               value: '{{color}}'
       destination:
         server: 'https://kubernetes.default.svc'
