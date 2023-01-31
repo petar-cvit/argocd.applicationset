@@ -1,0 +1,23 @@
+{{- range $k, $v := .Values }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ $k }}-level-stage
+  namespace: argocd
+spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: underthehood/02-service-application
+    repoURL: https://github.com/petar-cvit/argocd.applicationset
+    targetRevision: main
+    helm:
+      parameters:
+        - name: namespace
+          value: {{ $k }}
+      valueFiles:
+        - ../stage/config.yaml
+---
+{{- end }}

@@ -1,4 +1,6 @@
-{{- range $k, $v := .Values }}
+{{ $namespace := index .Values .Values.namespace }}
+
+{{- range $k, $v := $namespace }}
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:

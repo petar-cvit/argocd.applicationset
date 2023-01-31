@@ -1,0 +1,17 @@
+namespace-a:
+  service-a:
+    colors:
+      - red
+      - green
+      - blue
+  service-b:
+    colors:
+      - red
+      - yellow
+
+namespace-b:
+  service-c:
+    colors:
+      - green
+      - blue
+      - orange
