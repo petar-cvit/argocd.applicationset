@@ -1,0 +1,34 @@
+{{- range $k, $v := .Values }}
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  labels:
+    app.kubernetes.io/instance: colors-service
+  name: {{ $k }}-app
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          {{- range $color := $v.colors }}
+          - color: {{$color}}
+          {{- end }}
+  template:
+    metadata:
+      name: {{ $k }}-{{"{{color}}"}}
+    spec:
+      destination:
+        namespace: guestbook
+        server: 'https://kubernetes.default.svc'
+      project: default
+      source:
+        path: lib
+        plugin:
+          env:
+            - name: COLOR
+              value: '{{"{{"}}color{{"}}"}}'
+          name: cdk8s
+        repoURL: 'https://github.com/petar-cvit/argocd.applicationset'
+        targetRevision: HEAD
+---
+{{- end }}
