@@ -1,16 +1,19 @@
 namespace-a:
   service-a:
+    version: v2.3.4
     colors:
       - red
       - green
       - blue
   service-b:
+    version: v1.3.2
     colors:
       - red
       - yellow
 
 namespace-b:
   service-c:
+    version: v1.3.4
     colors:
       - green
       - blue
