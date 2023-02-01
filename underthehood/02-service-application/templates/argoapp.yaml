@@ -22,8 +22,13 @@ spec:
         server: 'https://kubernetes.default.svc'
       project: default
       source:
-        path: dummy-dpl
+        path: lib-services
         repoURL: 'https://github.com/petar-cvit/argocd.applicationset'
         targetRevision: HEAD
+        plugin:
+          name: cdk8s-service
+          env:
+            - name: VERSION
+              value: {{ $v.version }}
 ---
 {{- end }}
