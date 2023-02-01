@@ -8,3 +8,7 @@ service-e:
     - red
     - yellow
     - purple
+multitenancy-service:
+  version: v0.0.1
+  colors:
+    - rainbow
