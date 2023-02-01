@@ -44,6 +44,12 @@ func NewMyChart(scope constructs.Construct, id string, props *MyChartProps) cdk8
 					TargetRevision: jsii.String("main"),
 					Path:           jsii.String("underthehood/02-service-application"),
 					Helm: &argoprojio.ApplicationSpecSourceHelm{
+						Parameters: &[]*argoprojio.ApplicationSpecSourceHelmParameters{
+							{
+								Name:  jsii.String("namespace"),
+								Value: jsii.String(app.Namespace),
+							},
+						},
 						ValueFiles: &[]*string{
 							jsii.String("../../config/prod/" + app.Namespace + ".yaml"),
 						},

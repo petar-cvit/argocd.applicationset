@@ -1,4 +1,5 @@
 {{- range $k, $v := .Values }}
+{{ if ne $k "namespace" }}
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
@@ -28,7 +29,14 @@ spec:
         plugin:
           name: cdk8s-service
           env:
+            - name: NAME
+              value: {{ $k }}
+            - name: NAMESPACE
+              value: {{ $.Values.namespace }}
             - name: VERSION
               value: {{ $v.version }}
+            - name: COLOR
+              value: '{{"{{color}}"}}'
 ---
+{{end}}
 {{- end }}

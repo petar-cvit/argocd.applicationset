@@ -5,14 +5,16 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 	"github.com/aws/jsii-runtime-go"
 	"github.com/cdk8s-team/cdk8s-core-go/cdk8s/v2"
+	"os"
 )
 
 type MyChartProps struct {
 	cdk8s.ChartProps
 
-	Color   string
-	Version string
-	Name    string
+	Color     string
+	Version   string
+	Name      string
+	Namespace string
 }
 
 func NewMyChart(scope constructs.Construct, id string, props *MyChartProps) cdk8s.Chart {
@@ -55,17 +57,13 @@ func NewMyChart(scope constructs.Construct, id string, props *MyChartProps) cdk8
 }
 
 func main() {
-	//name := os.Args[1]
-	//color := os.Args[2]
-	//version := os.Args[3]
+	name := os.Args[1]
+	namespace := os.Args[2]
+	color := os.Args[3]
+	version := os.Args[4]
 
-	//files, err := ioutil.ReadDir("../config/prod/" + name)
-	//if err != nil {
-	//	log.Fatal(err)
-	//}
-	//
 	app := cdk8s.NewApp(nil)
-	//
+
 	//props := make([]NamespaceApp, 0, 0)
 	//
 	//for _, f := range files {
@@ -74,9 +72,10 @@ func main() {
 	//}
 
 	NewMyChart(app, "cdk8s", &MyChartProps{
-		Color:   "red",
-		Version: "v1.2.3",
-		Name:    "app",
+		Color:     color,
+		Version:   version,
+		Name:      name,
+		Namespace: namespace,
 	})
 
 	app.Synth()
