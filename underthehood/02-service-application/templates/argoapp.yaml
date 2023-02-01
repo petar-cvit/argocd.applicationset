@@ -22,12 +22,7 @@ spec:
         server: 'https://kubernetes.default.svc'
       project: default
       source:
-        path: lib
-        plugin:
-          env:
-            - name: COLOR
-              value: '{{"{{"}}color{{"}}"}}'
-          name: cdk8s
+        path: dummy-dpl
         repoURL: 'https://github.com/petar-cvit/argocd.applicationset'
         targetRevision: HEAD
 ---
