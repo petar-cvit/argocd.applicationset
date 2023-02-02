@@ -36,7 +36,7 @@ func NewService(scope constructs.Construct, id string, props *models.AppProps) c
 
 	k8s.NewKubeDeployment(chart, jsii.String("application"), &k8s.KubeDeploymentProps{
 		Metadata: &k8s.ObjectMeta{
-			Name:      jsii.String(props.Name),
+			Name:      jsii.String(props.Name + "-" + props.Color),
 			Namespace: jsii.String("guestbook"),
 		},
 		Spec: &k8s.DeploymentSpec{
@@ -66,7 +66,7 @@ func NewService(scope constructs.Construct, id string, props *models.AppProps) c
 
 	k8s.NewKubeService(chart, jsii.String("service"), &k8s.KubeServiceProps{
 		Metadata: &k8s.ObjectMeta{
-			Name:      jsii.String("service-" + props.Name),
+			Name:      jsii.String("service-" + props.Name + "-" + props.Color),
 			Namespace: jsii.String("guestbook"),
 		},
 		Spec: &k8s.ServiceSpec{
