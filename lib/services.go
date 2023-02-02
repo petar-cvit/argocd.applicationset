@@ -70,7 +70,6 @@ func NewService(scope constructs.Construct, id string, props *models.AppProps) c
 			Namespace: jsii.String("guestbook"),
 		},
 		Spec: &k8s.ServiceSpec{
-			Type: jsii.String("LoadBalancer"),
 			Ports: &[]*k8s.ServicePort{
 				{
 					Port:       jsii.Number(80),
