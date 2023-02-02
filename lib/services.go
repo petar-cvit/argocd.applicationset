@@ -27,6 +27,11 @@ func NewService(scope constructs.Construct, id string, props *models.AppProps) c
 			Value: jsii.String(value),
 		})
 	}
+
+	envVars = append(envVars, &k8s.EnvVar{
+		Name:  jsii.String("VERSION"),
+		Value: jsii.String(props.Version),
+	})
 	// endregion
 
 	k8s.NewKubeDeployment(chart, jsii.String("application"), &k8s.KubeDeploymentProps{
@@ -50,7 +55,7 @@ func NewService(scope constructs.Construct, id string, props *models.AppProps) c
 					Containers: &[]*k8s.Container{
 						{
 							Name:  jsii.String(props.Name),
-							Image: jsii.String(props.Name + ":" + props.Version),
+							Image: jsii.String("gcr.io/google-containers/busybox"),
 							Env:   &envVars,
 						},
 					},
