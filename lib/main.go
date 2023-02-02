@@ -65,10 +65,10 @@ func NewMyChart(scope constructs.Construct, id string, props *MyChartProps) cdk8
 
 func main() {
 	if os.Args[1] == "service" {
-		name := os.Args[1]
-		namespace := os.Args[2]
-		color := os.Args[3]
-		version := os.Args[4]
+		name := os.Args[2]
+		namespace := os.Args[3]
+		color := os.Args[4]
+		version := os.Args[5]
 
 		synthServices(name, namespace, color, version)
 		return
