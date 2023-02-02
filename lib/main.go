@@ -6,6 +6,7 @@ import (
 	"github.com/cdk8s-team/cdk8s-core-go/cdk8s/v2"
 	"io/ioutil"
 	"log"
+	"os"
 	"petar-cvit/cdk8s-argo/lib/imports/argoprojio"
 	"strings"
 )
@@ -63,7 +64,15 @@ func NewMyChart(scope constructs.Construct, id string, props *MyChartProps) cdk8
 }
 
 func main() {
-	//color := os.Args[1]
+	if os.Args[1] == "service" {
+		name := os.Args[1]
+		namespace := os.Args[2]
+		color := os.Args[3]
+		version := os.Args[4]
+
+		synthServices(name, namespace, color, version)
+		return
+	}
 
 	files, err := ioutil.ReadDir("../config/prod")
 	if err != nil {
