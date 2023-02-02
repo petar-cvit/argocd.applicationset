@@ -107,6 +107,7 @@ func synthServices(name, namespace, color, version string) {
 	props.Name = name
 	props.Namespace = namespace
 	props.Version = version
+	props.Color = color
 
 	//props := make([]NamespaceApp, 0, 0)
 	//
