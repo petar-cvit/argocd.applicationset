@@ -55,7 +55,7 @@ func NewService(scope constructs.Construct, id string, props *models.AppProps) c
 					Containers: &[]*k8s.Container{
 						{
 							Name:  jsii.String(props.Name),
-							Image: jsii.String("gcr.io/google-containers/busybox"),
+							Image: jsii.String("nginx"),
 							Env:   &envVars,
 						},
 					},
