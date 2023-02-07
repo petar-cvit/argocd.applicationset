@@ -4,7 +4,10 @@ services:
     isColorful: true
   service-e:
     version: v1.3.2
-    isColorful: true
+    colors:
+      - orange
+      - purple
+      - grey
   multitenancy-service:
     version: v0.0.1
-    isColorful: true
+    isColorful: false

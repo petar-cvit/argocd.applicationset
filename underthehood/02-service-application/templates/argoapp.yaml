@@ -16,8 +16,12 @@ spec:
           - color: {{$color}}
           {{- end }}
           {{- else }}
+          {{- if $v.colors }}
           {{- range $color := $v.colors }}
           - color: {{$color}}
+          {{- end }}
+          {{- else }}
+          - rainbow
           {{- end }}
           {{- end }}
   template:
