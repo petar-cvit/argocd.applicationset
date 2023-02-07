@@ -90,7 +90,7 @@ func synthServices(name, namespace, color, version string) {
 
 	plug, err := plugin.Open(mod)
 	if err != nil {
-		panic(err)
+		return
 	}
 
 	symExporter, err := plug.Lookup("GetConfig")
