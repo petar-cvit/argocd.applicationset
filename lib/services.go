@@ -95,12 +95,12 @@ func synthServices(name, namespace, color, version string) {
 
 	symExporter, err := plug.Lookup("GetConfig")
 	if err != nil {
-		panic(err)
+		return
 	}
 
 	exp, ok := symExporter.(func(string) models.AppProps)
 	if !ok {
-		panic(symExporter)
+		return
 	}
 
 	props := exp(color)
