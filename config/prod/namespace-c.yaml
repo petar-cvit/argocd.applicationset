@@ -1,15 +1,10 @@
 services:
   service-d:
     version: v2.3.4
-    colors:
-      - red
+    isColorful: true
   service-e:
     version: v1.3.2
-    colors:
-      - red
-      - yellow
-      - purple
+    isColorful: true
   multitenancy-service:
     version: v0.0.1
-    colors:
-      - rainbow
+    isColorful: true

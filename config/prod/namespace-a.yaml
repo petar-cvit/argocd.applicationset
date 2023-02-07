@@ -4,6 +4,4 @@ services:
     isColorful: true
   service-b:
     version: v1.3.2
-    colors:
-      - red
-      - yellow
+    isColorful: true
