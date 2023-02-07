@@ -1,11 +1,9 @@
-service-a:
-  version: v2.3.4
-  colors:
-    - red
-    - green
-    - blue
-service-b:
-  version: v1.3.2
-  colors:
-    - red
-    - yellow
+services:
+  service-a:
+    version: v2.3.4
+    isColorful: true
+  service-b:
+    version: v1.3.2
+    colors:
+      - red
+      - yellow

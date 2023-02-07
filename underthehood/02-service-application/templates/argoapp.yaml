@@ -1,4 +1,4 @@
-{{- range $k, $v := .Values }}
+{{- range $k, $v := .Values.services }}
 {{ if ne $k "namespace" }}
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
@@ -11,8 +11,14 @@ spec:
   generators:
     - list:
         elements:
+          {{- if $v.isColorful }}
+          {{- range $color := $.Values.colors }}
+          - color: {{$color}}
+          {{- end }}
+          {{- else }}
           {{- range $color := $v.colors }}
           - color: {{$color}}
+          {{- end }}
           {{- end }}
   template:
     metadata:

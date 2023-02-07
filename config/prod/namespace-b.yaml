@@ -1,6 +1,7 @@
-service-c:
-  version: v1.3.4
-  colors:
-    - green
-    - blue
-    - orange
+services:
+  service-c:
+    version: v1.3.4
+    colors:
+      - green
+      - blue
+      - orange

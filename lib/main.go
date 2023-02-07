@@ -53,6 +53,7 @@ func NewMyChart(scope constructs.Construct, id string, props *MyChartProps) cdk8
 						},
 						ValueFiles: &[]*string{
 							jsii.String("../../config/prod/" + app.Namespace + ".yaml"),
+							jsii.String("colors.yaml"),
 						},
 					},
 				},

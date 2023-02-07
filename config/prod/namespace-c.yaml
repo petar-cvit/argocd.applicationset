@@ -1,14 +1,15 @@
-service-d:
-  version: v2.3.4
-  colors:
-    - red
-service-e:
-  version: v1.3.2
-  colors:
-    - red
-    - yellow
-    - purple
-multitenancy-service:
-  version: v0.0.1
-  colors:
-    - rainbow
+services:
+  service-d:
+    version: v2.3.4
+    colors:
+      - red
+  service-e:
+    version: v1.3.2
+    colors:
+      - red
+      - yellow
+      - purple
+  multitenancy-service:
+    version: v0.0.1
+    colors:
+      - rainbow
