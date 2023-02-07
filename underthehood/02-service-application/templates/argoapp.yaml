@@ -21,7 +21,7 @@ spec:
           - color: {{$color}}
           {{- end }}
           {{- else }}
-          - rainbow
+          - color: rainbow
           {{- end }}
           {{- end }}
   template:
