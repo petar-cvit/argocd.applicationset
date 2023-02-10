@@ -1,4 +1,6 @@
 services:
   test:
     version: v2.3.4
-    isColorful: true
+    colors:
+      - yellow
+      - green
