@@ -1,6 +1,0 @@
-services:
-  test:
-    version: v2.3.4
-    colors:
-      - yellow
-      - green
