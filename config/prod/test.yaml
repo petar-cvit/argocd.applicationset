@@ -1,0 +1,4 @@
+services:
+  test-test:
+    version: v2.3.4
+    isColorful: true
