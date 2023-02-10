@@ -40,6 +40,7 @@ func NewService(scope constructs.Construct, id string, props *models.AppProps) c
 			Namespace: jsii.String("guestbook"),
 		},
 		Spec: &k8s.DeploymentSpec{
+			Replicas: jsii.Number(float64(props.Replicas)),
 			Selector: &k8s.LabelSelector{
 				MatchLabels: &map[string]*string{
 					"app": jsii.String(props.Name),
