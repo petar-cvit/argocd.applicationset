@@ -1,7 +1,0 @@
-services:
-  my-test-service:
-    version: v0.3.0
-    colors:
-      - red
-      - orange
-      - grey
