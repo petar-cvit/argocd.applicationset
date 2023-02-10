@@ -1,0 +1,3 @@
+services:
+  test:
+    version: v2.3.4
