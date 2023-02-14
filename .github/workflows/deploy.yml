@@ -48,4 +48,9 @@ jobs:
           
           git add ../manifests
           git diff --staged
-          git restore --staged ../manifests
+          
+          git config --global user.email "petar.cvitanovic@gmail.com"
+          git config --global user.name "petar-cvit"
+          
+          git commit -m "manifest update for $NAMESPACE/$SERVICE"
+          git push origin HEAD:main
