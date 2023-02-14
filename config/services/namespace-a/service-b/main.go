@@ -18,4 +18,5 @@ func GetConfig(color string) models.AppProps {
 		},
 		Replicas: 1,
 	}
+	
 }
