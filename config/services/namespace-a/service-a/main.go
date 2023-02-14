@@ -11,4 +11,5 @@ func GetConfig(color string) models.AppProps {
 		Host:     "https://colors.com/" + color,
 		Replicas: 3,
 	}
+	
 }

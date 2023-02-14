@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: '18'
       - name: Install cdk8s
-        run: npm install -i cdk8s-cli
+        run: npm ci cdk8s-cli
       - uses: jitterbit/get-changed-files@v1
         id: abc
         with:
