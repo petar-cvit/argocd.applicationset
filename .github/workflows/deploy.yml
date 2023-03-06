@@ -23,6 +23,9 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Printing
         run: |
+          mkdir $GITHUB_WORKSPACE/synth
+          touch $GITHUB_WORKSPACE/synth/test.yaml
+          
           docker pull petarcvit223/namespace:v2
           
           cd $GITHUB_WORKSPACE
