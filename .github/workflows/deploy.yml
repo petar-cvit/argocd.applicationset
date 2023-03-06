@@ -1,10 +1,5 @@
 name: Test
 
-on:
-  push:
-    paths:
-      - 'config/**'
-
 jobs:
   commit-synth-manifest:
     runs-on: ubuntu-latest
@@ -23,34 +18,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Printing
         run: |
-          TEST="$(echo "${{ steps.abc.outputs.all }}" | cut -d'/' -f1)"
-          echo $TEST
-          
-          FILE="config/services/namespace-a/service-b/main.go"
-  
-          ROOT="$(echo $FILE | cut -d'/' -f1)"
-          TYPE="$(echo $FILE | cut -d'/' -f2)"
-          NAMESPACE="$(echo $FILE | cut -d'/' -f3)"
-          SERVICE="$(echo $FILE | cut -d'/' -f4)"
-          
-          cd lib
-          
-          go build -buildmode plugin -o ../config/services/$NAMESPACE/$SERVICE/main.so ../config/services/$NAMESPACE/$SERVICE/main.go
-          
-          mkdir ../manifests
-          mkdir ../manifests/$NAMESPACE
-          
-          echo $NAMESPACE $SERVICE
-          
-          cdk8s synth --stdout --app "go run . service $SERVICE $NAMESPACE red v1.3.2" > ../manifests/$NAMESPACE/$SERVICE.yaml
-          
-          rm ../config/services/$NAMESPACE/$SERVICE/main.so
-          
-          git add ../manifests
-          git diff --staged
-          
-          git config --global user.email 'petar-cvit@users.noreply.github.com'
-          git config --global user.name "petar-cvit"
-          
-          git commit -m "manifest update for $NAMESPACE/$SERVICE"
-          git push origin HEAD:main
+          docker version
