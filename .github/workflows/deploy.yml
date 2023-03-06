@@ -1,5 +1,10 @@
 name: Test
 
+on:
+  push:
+    paths:
+      - '**'
+
 jobs:
   commit-synth-manifest:
     runs-on: ubuntu-latest
