@@ -22,7 +22,9 @@ jobs:
           format: space-delimited
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Printing
+        env:
+          GH_DEMO_APPSETS_TOKEN: ${{ secrets.GH_DEMO_APPSETS_TOKEN }}
         run: |
           docker pull petarcvit223/namespace:v4
           
-          docker run --rm petarcvit223/namespace:v4 ./bin/namespace ${{ secrets.GITHUB_TOKEN }}
+          docker run --rm petarcvit223/namespace:v4 ./bin/namespace $GH_DEMO_APPSETS_TOKEN
