@@ -32,5 +32,6 @@ jobs:
           
           docker run -v $GITHUB_WORKSPACE:/mnt/config  petarcvit223/namespace:v2
           
+          git add .
           git status
-          git diff
+          git diff --staged
