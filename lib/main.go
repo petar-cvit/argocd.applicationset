@@ -21,6 +21,44 @@ type MyChartProps struct {
 	NamespaceApps []NamespaceApp
 }
 
+func NewApplication(namespace string, scope constructs.Construct) cdk8s.Chart {
+	var cprops cdk8s.ChartProps
+	chart := cdk8s.NewChart(scope, jsii.String(namespace), &cprops)
+
+	argoprojio.NewApplication(chart, jsii.String(namespace+"-application"), &argoprojio.ApplicationProps{
+		Metadata: &cdk8s.ApiObjectMetadata{
+			Name:      jsii.String(namespace + "-application"),
+			Namespace: jsii.String("argocd"),
+		},
+		Spec: &argoprojio.ApplicationSpec{
+			Destination: &argoprojio.ApplicationSpecDestination{
+				Namespace: jsii.String("argocd"),
+				Server:    jsii.String("https://kubernetes.default.svc"),
+			},
+			Project: jsii.String("default"),
+			Source: &argoprojio.ApplicationSpecSource{
+				RepoUrl:        jsii.String("https://github.com/petar-cvit/argocd.applicationset"),
+				TargetRevision: jsii.String("main"),
+				Path:           jsii.String("underthehood/02-service-application"),
+				Helm: &argoprojio.ApplicationSpecSourceHelm{
+					Parameters: &[]*argoprojio.ApplicationSpecSourceHelmParameters{
+						{
+							Name:  jsii.String("namespace"),
+							Value: jsii.String(namespace),
+						},
+					},
+					ValueFiles: &[]*string{
+						jsii.String("../../config/prod/" + namespace + ".yaml"),
+						jsii.String("colors.yaml"),
+					},
+				},
+			},
+		},
+	})
+
+	return chart
+}
+
 func NewMyChart(scope constructs.Construct, id string, props *MyChartProps) cdk8s.Chart {
 	var cprops cdk8s.ChartProps
 	if props != nil {
@@ -65,6 +103,15 @@ func NewMyChart(scope constructs.Construct, id string, props *MyChartProps) cdk8
 }
 
 func main() {
+	if os.Args[1] == "application" {
+		app := cdk8s.NewApp(nil)
+		NewApplication(os.Args[2], app)
+
+		app.Synth()
+
+		return
+	}
+
 	if os.Args[1] == "service" {
 		name := os.Args[2]
 		namespace := os.Args[3]

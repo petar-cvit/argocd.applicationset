@@ -23,6 +23,11 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Printing
         run: |
-          #docker pull petarcvit223/namespace
+          docker pull petarcvit223/namespace
           
-          ls $GITHUB_WORKSPACE
+          cd $GITHUB_WORKSPACE
+          
+          docker run -v $GITHUB_WORKSPACE:/mnt/config  petarcvit223/namespace
+          
+          git status
+          git diff
