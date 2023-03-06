@@ -2,3 +2,4 @@ services:
   demo-service:
     version: v2.3.4
     isColorful: true
+

@@ -25,4 +25,4 @@ jobs:
         run: |
           docker pull petarcvit223/namespace:v4
           
-          docker run petarcvit223/namespace:v4 ${{ secrets.GITHUB_TOKEN }}
+          docker run -it --rm petarcvit223/namespace:v4 ./bin/namespace ${{ secrets.GITHUB_TOKEN }}
