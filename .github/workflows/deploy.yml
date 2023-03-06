@@ -23,4 +23,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Printing
         run: |
-          docker version
+          #docker pull petarcvit223/namespace
+          
+          ls /
+          ls /mnt
