@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  labels:
+    app.kubernetes.io/instance: colors-service
+  name: service-d
+  namespace: namespace-c
+spec:
+  generators:
+    - list:
+        elements:
+          - color
+  template:
+    metadata:
+      name: service-d-green
+    spec:
+      destination:
+        namespace: namespace-c
+        server: https://kubernetes.default.svc
+      project: default
+      source:
+        path: synth/services/namespace-c/service-d
+        repoURL: https://github.com/petar-cvit/argocd.applicationset
+        targetRevision: HEAD
