@@ -1,3 +1,4 @@
+libVersion: v1.0.2
 services:
   service-a:
     version: v2.3.4

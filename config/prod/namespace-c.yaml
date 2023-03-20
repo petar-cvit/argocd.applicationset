@@ -1,3 +1,4 @@
+libVersion: v1.0.3
 services:
   service-d:
     version: v2.3.4

@@ -1,3 +1,4 @@
+libVersion: v1.0.1
 services:
   demo-service:
     version: v2.3.4

@@ -1,3 +1,4 @@
+libVersion: v1.0.2
 services:
   service-c:
     version: v1.3.4
