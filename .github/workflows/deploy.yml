@@ -28,7 +28,7 @@ jobs:
           for i in ${{ steps.abc.outputs.all }}; do
             if [[ $i =~ config/(prod|stage)/[a-z|-]*.yaml ]]; then
               echo "working $i"
-              echo $()
+              echo $(cat $i | yq .libVersion)
             else
               echo "skip $i"
             fi
