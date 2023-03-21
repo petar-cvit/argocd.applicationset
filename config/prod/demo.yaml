@@ -1,8 +1,0 @@
-libVersion: v1.0.1
-services:
-  first-service:
-    version: v3.3.4
-  demo-service:
-    version: v2.3.4
-    isColorful: true
-
