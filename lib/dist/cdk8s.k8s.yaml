@@ -1,0 +1,131 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: demo-application
+  namespace: argocd
+spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    helm:
+      parameters:
+        - name: namespace
+          value: demo
+      valueFiles:
+        - ../../config/prod/demo.yaml
+        - colors.yaml
+    path: underthehood/02-service-application
+    repoURL: https://github.com/petar-cvit/argocd.applicationset
+    targetRevision: main
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: namespace-a-application
+  namespace: argocd
+spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    helm:
+      parameters:
+        - name: namespace
+          value: namespace-a
+      valueFiles:
+        - ../../config/prod/namespace-a.yaml
+        - colors.yaml
+    path: underthehood/02-service-application
+    repoURL: https://github.com/petar-cvit/argocd.applicationset
+    targetRevision: main
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: namespace-b-application
+  namespace: argocd
+spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    helm:
+      parameters:
+        - name: namespace
+          value: namespace-b
+      valueFiles:
+        - ../../config/prod/namespace-b.yaml
+        - colors.yaml
+    path: underthehood/02-service-application
+    repoURL: https://github.com/petar-cvit/argocd.applicationset
+    targetRevision: main
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: namespace-c-application
+  namespace: argocd
+spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    helm:
+      parameters:
+        - name: namespace
+          value: namespace-c
+      valueFiles:
+        - ../../config/prod/namespace-c.yaml
+        - colors.yaml
+    path: underthehood/02-service-application
+    repoURL: https://github.com/petar-cvit/argocd.applicationset
+    targetRevision: main
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: new-ns-application
+  namespace: argocd
+spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    helm:
+      parameters:
+        - name: namespace
+          value: new-ns
+      valueFiles:
+        - ../../config/prod/new-ns.yaml
+        - colors.yaml
+    path: underthehood/02-service-application
+    repoURL: https://github.com/petar-cvit/argocd.applicationset
+    targetRevision: main
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: test-application
+  namespace: argocd
+spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    helm:
+      parameters:
+        - name: namespace
+          value: test
+      valueFiles:
+        - ../../config/prod/test.yaml
+        - colors.yaml
+    path: underthehood/02-service-application
+    repoURL: https://github.com/petar-cvit/argocd.applicationset
+    targetRevision: main

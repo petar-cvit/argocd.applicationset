@@ -2,12 +2,12 @@
 package k8s
 
 import (
-	_init_ "petar-cvit/cdk8s-argo/lib/imports/k8s/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+	_init_ "petar-cvit/cdk8s-argo/internal/lib/imports/k8s/jsii"
 
-	"petar-cvit/cdk8s-argo/lib/imports/k8s/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 	"github.com/cdk8s-team/cdk8s-core-go/cdk8s/v2"
+	"petar-cvit/cdk8s-argo/internal/lib/imports/k8s/internal"
 )
 
 // StorageClass describes the parameters for a class of storage for which PersistentVolumes can be dynamically provisioned.
@@ -295,4 +295,3 @@ func (k *jsiiProxy_KubeStorageClass) ToString() *string {
 
 	return returns
 }
-

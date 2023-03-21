@@ -2,12 +2,12 @@
 package k8s
 
 import (
-	_init_ "petar-cvit/cdk8s-argo/lib/imports/k8s/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+	_init_ "petar-cvit/cdk8s-argo/internal/lib/imports/k8s/jsii"
 
-	"petar-cvit/cdk8s-argo/lib/imports/k8s/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 	"github.com/cdk8s-team/cdk8s-core-go/cdk8s/v2"
+	"petar-cvit/cdk8s-argo/internal/lib/imports/k8s/internal"
 )
 
 // CertificateSigningRequest objects provide a mechanism to obtain x509 certificates by submitting a certificate signing request, and having it asynchronously approved and issued.
@@ -299,4 +299,3 @@ func (k *jsiiProxy_KubeCertificateSigningRequest) ToString() *string {
 
 	return returns
 }
-

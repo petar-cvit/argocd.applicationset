@@ -2,8 +2,8 @@
 package k8s
 
 import (
-	_init_ "petar-cvit/cdk8s-argo/lib/imports/k8s/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+	_init_ "petar-cvit/cdk8s-argo/internal/lib/imports/k8s/jsii"
 )
 
 type IntOrString interface {
@@ -60,4 +60,3 @@ func IntOrString_FromString(value *string) IntOrString {
 
 	return returns
 }
-

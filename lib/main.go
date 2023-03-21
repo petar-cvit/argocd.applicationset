@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"github.com/aws/constructs-go/constructs/v10"
 	"github.com/aws/jsii-runtime-go"
 	"github.com/cdk8s-team/cdk8s-core-go/cdk8s/v2"
@@ -8,6 +9,7 @@ import (
 	"log"
 	"os"
 	"petar-cvit/cdk8s-argo/lib/imports/argoprojio"
+	"petar-cvit/cdk8s-argo/lib/models"
 	"strings"
 )
 
@@ -106,6 +108,20 @@ func main() {
 	if os.Args[1] == "application" {
 		app := cdk8s.NewApp(nil)
 		NewApplication(os.Args[2], app)
+
+		fmt.Println(app.SynthYaml())
+
+		return
+	}
+
+	if os.Args[1] == "appset" {
+		app := cdk8s.NewApp(nil)
+		NewApplicationsSet(app, "offer", &models.ApplicationSet{
+			Name:      "trading-offer-engine",
+			Namespace: "offer",
+			Color:     "red",
+			Version:   "v1.2.3",
+		})
 
 		app.Synth()
 

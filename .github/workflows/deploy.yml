@@ -28,7 +28,11 @@ jobs:
           for i in ${{ steps.abc.outputs.all }}; do
             if [[ $i =~ config/(prod|stage)/[a-z|-]*.yaml ]]; then
               echo "working $i"
-              echo $(cat $i | yq .libVersion)
+              VERSION=$(cat $i | yq .libVersion)
+              docker pull petarcvit223/namespaces:$VERSION
+              
+              
+              
             else
               echo "skip $i"
             fi
