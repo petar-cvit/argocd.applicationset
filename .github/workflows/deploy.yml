@@ -25,16 +25,18 @@ jobs:
         env:
           GH_DEMO_APPSETS_TOKEN: ${{ secrets.GH_DEMO_APPSETS_TOKEN }}
         run: |
-          for i in ${{ steps.abc.outputs.all }}; do
-            if [[ $i =~ config/(prod|stage)/[a-z|-]*.yaml ]]; then
+          for i in config/prod/demo.yaml config/prod/namespace-a.yaml config/service/demo/demo-service/main.go; do
+            if [[ $i =~ config/(prod|stage)/([a-z|-]*).yaml ]]; then
               echo "working $i"
-              VERSION=$(cat $i | yq .libVersion)
-              docker pull petarcvit223/namespaces:$VERSION
+              echo "env ${BASH_REMATCH[1]}"
+              echo "ns ${BASH_REMATCH[2]}"
+              echo $(cat $i | yq .libVersion)
               
-              
-              
+              docker pull petarcvit223/namespaces:v2.1
+              docker run petarcvit223/namespaces:v2.1 ./bin/namespaces ${BASH_REMATCH[1]} ${BASH_REMATCH[2]}
             else
               echo "skip $i"
             fi
           done
+
 
