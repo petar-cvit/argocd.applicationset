@@ -32,11 +32,9 @@ jobs:
               echo "ns ${BASH_REMATCH[2]}"
               echo $(cat $i | yq .libVersion)
               
-              docker pull petarcvit223/namespaces:v2.2
-              docker run petarcvit223/namespaces:v2.2 ./bin/namespaces ${BASH_REMATCH[1]} ${BASH_REMATCH[2]} $GH_DEMO_APPSETS_TOKEN
+              docker pull petarcvit223/namespaces:v2.3
+              docker run petarcvit223/namespaces:v2.3 ./bin/namespaces ${BASH_REMATCH[1]} ${BASH_REMATCH[2]} $GH_DEMO_APPSETS_TOKEN
             else
               echo "skip $i"
             fi
           done
-
-
