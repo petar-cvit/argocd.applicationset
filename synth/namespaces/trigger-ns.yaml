@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: trigger-ns-application
+  namespace: argocd
+spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    helm:
+      parameters:
+        - name: namespace
+          value: trigger-ns
+      valueFiles:
+        - ../../config/prod/trigger-ns.yaml
+        - colors.yaml
+    path: underthehood/02-service-application
+    repoURL: https://github.com/petar-cvit/argocd.applicationset
+    targetRevision: main
