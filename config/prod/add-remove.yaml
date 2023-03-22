@@ -1,0 +1,7 @@
+libVersion: v1.0.2
+services:
+  some-service:
+    version: v2.2.2
+    isColorful: true
+  another:
+    version: v1.1.1

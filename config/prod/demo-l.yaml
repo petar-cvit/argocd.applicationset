@@ -1,7 +1,0 @@
-libVersion: v1.0.2
-services:
-  example:
-    version: v0.0.0
-  demo-service:
-    version: v2.3.4
-    isColorful: true
