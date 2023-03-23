@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: engine-rainbow
+  namespace: offer
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: engine
+  template:
+    metadata:
+      name: engine-rainbow
+      namespace: offer
+    spec:
+      containers:
+        - image: image:v123
+          name: engine-rainbow
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: engine-rainbow
+  namespace: offer
+spec:
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: engine
