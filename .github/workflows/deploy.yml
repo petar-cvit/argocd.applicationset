@@ -38,3 +38,13 @@ jobs:
               echo "skip $i"
             fi
           done
+          
+          for i in ${{ steps.abc.outputs.all }}; do
+            if [[ $i =~ config/services/([a-z|-]*)/([a-z|-]*)/main.go ]]; then
+              echo "working $i"
+              echo "ns ${BASH_REMATCH[1]}"
+              echo "name ${BASH_REMATCH[2]}"
+            else
+              echo "skip services $i"
+            fi
+          done
