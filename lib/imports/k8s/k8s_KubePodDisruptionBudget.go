@@ -2,12 +2,12 @@
 package k8s
 
 import (
-	_init_ "petar-cvit/cdk8s-argo/internal/lib/imports/k8s/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+	_init_ "petar-cvit/cdk8s-argo/lib/imports/k8s/jsii"
 
-	"petar-cvit/cdk8s-argo/internal/lib/imports/k8s/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 	"github.com/cdk8s-team/cdk8s-core-go/cdk8s/v2"
+	"petar-cvit/cdk8s-argo/lib/imports/k8s/internal"
 )
 
 // PodDisruptionBudget is an object to define the max disruption that can be caused to a collection of pods.
@@ -293,4 +293,3 @@ func (k *jsiiProxy_KubePodDisruptionBudget) ToString() *string {
 
 	return returns
 }
-
