@@ -6,3 +6,6 @@ services:
   service-b:
     version: v1.3.2
     isColorful: true
+  moj-servis:
+    version: v2.2.3
+
