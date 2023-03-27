@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  labels:
+    app.kubernetes.io/instance: colors-service
+  name: moj-servis
+  namespace: namespace-a
+spec:
+  generators:
+    - list:
+        elements:
+          - color
+  template:
+    metadata:
+      name: moj-servis-green
+    spec:
+      destination:
+        namespace: namespace-a
+        server: https://kubernetes.default.svc
+      project: default
+      source:
+        path: synth/services/namespace-a/moj-servis
+        repoURL: https://github.com/petar-cvit/argocd.applicationset
+        targetRevision: HEAD
