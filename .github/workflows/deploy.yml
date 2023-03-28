@@ -45,8 +45,8 @@ jobs:
               echo "ns ${BASH_REMATCH[1]}"
               echo "name ${BASH_REMATCH[2]}"
           
-              docker pull petarcvit223/services:v1.0
-              docker run petarcvit223/services:v1.0 ./cmd/services/bin/services prod demo demo-service
+              docker pull petarcvit223/services:v1.2
+              docker run petarcvit223/services:v1.2 ./cmd/services/bin/services prod demo demo-service
             else
               echo "skip services $i"
             fi
