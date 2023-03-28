@@ -5,4 +5,3 @@ services:
     isColorful: true
   another:
     version: v1.1.1
-
