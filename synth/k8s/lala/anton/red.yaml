@@ -15,14 +15,14 @@ spec:
     spec:
       containers:
         - env:
-            - name: COMPLEMENT
-              value: ""
             - name: KEY
               value: im.service.b
             - name: COLOR
               value: red
             - name: TENANCY
               value: tenancy/red
+            - name: COMPLEMENT
+              value: ""
           image: image:v123
           name: anton-red
 ---
@@ -38,3 +38,22 @@ spec:
       targetPort: 8080
   selector:
     app: anton
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: anton-red
+  namespace: lala
+spec:
+  rules:
+    - host: http://langlarg
+      http:
+        paths:
+          - backend:
+              service:
+                name: anton
+                port:
+                  name: http
+                  number: 8080
+            path: /
+            pathType: Exact
