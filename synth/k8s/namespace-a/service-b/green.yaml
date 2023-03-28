@@ -1,31 +1,40 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: engine-green
-  namespace: offer
+  name: service-b-green
+  namespace: namespace-a
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      app: engine
+      app: service-b
   template:
     metadata:
-      name: engine-green
-      namespace: offer
+      name: service-b-green
+      namespace: namespace-a
     spec:
       containers:
-        - image: image:v123
-          name: engine-green
+        - env:
+            - name: KEY
+              value: im.service.b
+            - name: COLOR
+              value: green
+            - name: TENANCY
+              value: tenancy/green
+            - name: COMPLEMENT
+              value: red
+          image: image:v123
+          name: service-b-green
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: engine-green
-  namespace: offer
+  name: service-b-green
+  namespace: namespace-a
 spec:
   ports:
     - port: 8080
       protocol: TCP
       targetPort: 8080
   selector:
-    app: engine
+    app: service-b
