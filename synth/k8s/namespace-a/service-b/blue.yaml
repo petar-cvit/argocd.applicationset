@@ -14,7 +14,16 @@ spec:
       namespace: namespace-a
     spec:
       containers:
-        - image: image:v123
+        - env:
+            - name: KEY
+              value: im.service.b
+            - name: COLOR
+              value: blue
+            - name: TENANCY
+              value: tenancy/blue
+            - name: COMPLEMENT
+              value: orange
+          image: image:v123
           name: service-b-blue
 ---
 apiVersion: v1
