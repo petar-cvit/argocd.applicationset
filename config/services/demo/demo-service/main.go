@@ -14,6 +14,5 @@ func GetConfig(color string) models.AppProps {
 			"KAFKA_TOPIC_2": color + ".rifgjealf",
 		},
 		Replicas: 5,
-		Host:     "https://my-demo.com",
 	}
 }
