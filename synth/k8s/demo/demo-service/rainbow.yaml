@@ -4,7 +4,7 @@ metadata:
   name: demo-service-rainbow
   namespace: demo
 spec:
-  replicas: 5
+  replicas: 3
   selector:
     matchLabels:
       app: demo-service
