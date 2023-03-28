@@ -1,31 +1,31 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: engine-red
-  namespace: offer
+  name: service-b-red
+  namespace: namespace-a
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      app: engine
+      app: service-b
   template:
     metadata:
-      name: engine-red
-      namespace: offer
+      name: service-b-red
+      namespace: namespace-a
     spec:
       containers:
         - image: image:v123
-          name: engine-red
+          name: service-b-red
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: engine-red
-  namespace: offer
+  name: service-b-red
+  namespace: namespace-a
 spec:
   ports:
     - port: 8080
       protocol: TCP
       targetPort: 8080
   selector:
-    app: engine
+    app: service-b
