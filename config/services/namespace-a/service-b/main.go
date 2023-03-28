@@ -10,6 +10,8 @@ func GetConfig(color string) models.AppProps {
 	}
 
 	return models.AppProps{
+		Name:      "service-b",
+		Namespace: "namespace-a",
 		Env: map[string]string{
 			"COLOR":      color,
 			"TENANCY":    "tenancy/" + color,
