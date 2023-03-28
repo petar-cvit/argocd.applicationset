@@ -29,22 +29,3 @@ spec:
       targetPort: 8080
   selector:
     app: demo-service
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: demo-service-rainbow
-  namespace: demo
-spec:
-  rules:
-    - host: https://my-demo.com
-      http:
-        paths:
-          - backend:
-              service:
-                name: demo-service
-                port:
-                  name: http
-                  number: 8080
-            path: /
-            pathType: Exact
