@@ -1,6 +1,6 @@
 package main
 
-import "petar-cvit/cdk8s-argo/lib/models"
+import "petar-cvit/cdk8s-argo/pipelines/models"
 
 func GetConfig(color string) models.AppProps {
 	specificByColor := map[string]string{
