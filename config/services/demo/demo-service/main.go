@@ -13,6 +13,6 @@ func GetConfig(color string) models.AppProps {
 			"KAFKA_TOPIC":   color + ".rifgjealf",
 			"KAFKA_TOPIC_2": color + ".rifgjealf",
 		},
-		Replicas: 5,
+		Replicas: 3,
 	}
 }
