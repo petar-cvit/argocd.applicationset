@@ -15,14 +15,14 @@ spec:
     spec:
       containers:
         - env:
-            - name: TENANCY
-              value: tenancy/blue
-            - name: COMPLEMENT
-              value: orange
             - name: KEY
               value: im.service.b
             - name: COLOR
               value: blue
+            - name: TENANCY
+              value: tenancy/blue
+            - name: COMPLEMENT
+              value: orange
           image: image:v123
           name: service-b-blue
 ---
