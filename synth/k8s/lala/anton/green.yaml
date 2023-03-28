@@ -17,12 +17,12 @@ spec:
         - env:
             - name: COLOR
               value: green
-            - name: TENANCY
-              value: tenancy/green
             - name: COMPLEMENT
               value: red
             - name: KEY
               value: im.service.b
+            - name: TENANCY
+              value: tenancy/green
           image: image:v123
           name: anton-green
 ---
