@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-service-rainbow
+  namespace: demo
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: demo-service
+  template:
+    metadata:
+      name: demo-service-rainbow
+      namespace: demo
+    spec:
+      containers:
+        - image: image:v123
+          name: demo-service-rainbow
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo-service-rainbow
+  namespace: demo
+spec:
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: demo-service

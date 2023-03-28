@@ -7,13 +7,12 @@ func GetConfig(color string) models.AppProps {
 		Name:      "demo-service",
 		Namespace: "demo",
 		Env: map[string]string{
-			"COLOR":         color,
+			"COLORa":         color,
 			"TENANCY":       "tenancy/" + color,
 			"KAFKA_TOPI":    color + ".rifgjealf",
 			"KAFKA_TOPIC":   color + ".rifgjealf",
 			"KAFKA_TOPIC_2": color + ".rifgjealf",
 		},
 		Replicas: 5,
-		Host:     "https://my-demo.com",
 	}
 }
