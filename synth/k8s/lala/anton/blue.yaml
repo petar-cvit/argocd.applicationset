@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: anton-blue
+  namespace: lala
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: anton
+  template:
+    metadata:
+      name: anton-blue
+      namespace: lala
+    spec:
+      containers:
+        - env:
+            - name: COMPLEMENT
+              value: orange
+            - name: KEY
+              value: im.service.b
+            - name: COLOR
+              value: blue
+            - name: TENANCY
+              value: tenancy/blue
+          image: image:v123
+          name: anton-blue
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: anton-blue
+  namespace: lala
+spec:
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: anton
