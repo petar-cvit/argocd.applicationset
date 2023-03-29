@@ -18,6 +18,7 @@ func GetConfig(color string) models.AppProps {
 			"KEY":        "im.service.b",
 			"COMPLEMENT": specificByColor[color],
 		},
+		Host: "http://langlarg",
 		Replicas: 1,
 	}
 }

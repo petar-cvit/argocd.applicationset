@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: anton-green
+  namespace: lala
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: anton
+  template:
+    metadata:
+      name: anton-green
+      namespace: lala
+    spec:
+      containers:
+        - env:
+            - name: COLOR
+              value: green
+            - name: COMPLEMENT
+              value: red
+            - name: KEY
+              value: im.service.b
+            - name: TENANCY
+              value: tenancy/green
+          image: image:v123
+          name: anton-green
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: anton-green
+  namespace: lala
+spec:
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: anton
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: anton-green
+  namespace: lala
+spec:
+  rules:
+    - host: http://langlarg
+      http:
+        paths:
+          - backend:
+              service:
+                name: anton
+                port:
+                  name: http
+                  number: 8080
+            path: /
+            pathType: Exact
