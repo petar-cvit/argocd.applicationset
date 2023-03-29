@@ -1,13 +1,13 @@
 package main
 
-import "petar-cvit/cdk8s-argo/pipelines/models"
+import "github.com/superbet-group/offer.infrastructure.cdk8s/pkg"
 
-func GetConfig(color string) models.AppProps {
-	return models.AppProps{
+func GetConfig(color string) pkg.AppProps {
+	return pkg.AppProps{
 		Name:      "demo-service",
 		Namespace: "demo",
 		Env: map[string]string{
-			"COLORa":         color,
+			"COLORa":        color,
 			"TENANCY":       "tenancy/" + color,
 			"KAFKA_TOPI":    color + ".rifgjealf",
 			"KAFKA_TOPIC":   color + ".rifgjealf",
